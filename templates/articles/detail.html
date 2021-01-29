@@ -1,11 +1,11 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block title %}{{article.article_title}}{% endblock %}
 
 {% block conent %}
-    <h2>{{ article.article_title }}</h2>
-    <p>{{ article.article_text }}</p>
-    <em>{{ article.pub_date }}</em>
+    <h2>{{article.article_title}}</h2>
+    <p>{{article.article_text}}</p>
+    <em>{{article.pub_date}}</em>
 
     {% if article.was_published_recently %}
     Новая Статья!
@@ -15,8 +15,8 @@
     {% if latest_comments_list  %}
         {% for c in latest_comments_list %}
             <p>
-                <strong>{{ c.author_name }}</strong>
-                <p>{{ c.comment_text }}<p/>
+                <strong>{{c.author_name}}</strong>
+                <p>{{c.comment_text}}</p>
             </p>
     {% endfor %}
     {% else %}
@@ -27,10 +27,10 @@
 
     <form action="{% url 'articles:leave_comment' article.id %}" method="post">
 
-        {% csrf_token %}
+        {% csrf_token %}# CSRF attacks protection
 
         <input type="text" required placeholder="Ваше имя" name="name"><br>
-        <textarea name="text" required placeholder="Текст Комментария>" cols="30" rows="10"></textarea> <br>
+        <textarea name="text" required placeholder="Текст Комментария" cols="30" rows="10"></textarea> <br>
         <button type="submit">Оставить комментарий</button>
 
     </form>
