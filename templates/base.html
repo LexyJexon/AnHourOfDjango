@@ -8,8 +8,8 @@
 
     {% block content %}
 
-        {% for a in latest_articles_list %}
-            <a href="{% url 'articles:detail' a.id %}">{{a.article_title}}</a>
+        {% for a in articles_list %}
+            <a href="{% url 'articles:index' %}">{{a.article_title}}</a><br>
         {% endfor %}
 
     {% endblock %}
