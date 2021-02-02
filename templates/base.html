@@ -7,12 +7,7 @@
 <body>
 
     {% block content %}
-
-        {% for a in articles_list %}
-            <a href="{% url 'articles:index' %}">{{a.article_title}}</a><br>
-        {% endfor %}
-
-    {% endblock %}
+    {% endblock content%}
 
 </body>
 </html>
